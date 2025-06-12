@@ -86,7 +86,7 @@ export async function POST(request) {
     if (emailSuccess) {
       return NextResponse.json({
         success: true,
-        message: telegramSuccess ? 'Message and email sent successfully!' : 'Email sent successfully (Telegram skipped).',
+        message: telegramSuccess ? 'Message and email sent successfully!' : 'Email sent successfully',
       }, { status: 200 });
     }
 
