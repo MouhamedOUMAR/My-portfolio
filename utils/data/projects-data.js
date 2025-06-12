@@ -21,7 +21,7 @@ export const projectsData = [
       description: ' Collaborated with a team to develop a system Bank Attendance .',
       tools: ['Java', 'Swing',"MySQL"],
       role: 'Full Stack Developer',
-      github: 'https://github.com/MouhamedOUMAR'
+      github: 'https://github.com/MouhamedOUMAR/Student-Management-System'
   },
   {
       id: 4,
