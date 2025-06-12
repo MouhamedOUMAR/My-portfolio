@@ -12,21 +12,25 @@ export const projectsData = [
       name: 'Spring boot ',
       description: 'Backend system for managing students. Features full CRUD operations and RESTful APIs using Spring Data JPA.',
       tools: ['Java', 'Spring boot', "MySQL",],
-      role: 'Full Stack Developer'
+      role: 'Full Stack Developer',
+      github: 'https://github.com/MouhamedOUMAR'
   },
   {
       id: 3,
       name: ' Attendance System Bank ',
       description: ' Collaborated with a team to develop a system Bank Attendance .',
       tools: ['Java', 'Swing',"MySQL"],
-      role: 'Full Stack Developer'
+      role: 'Full Stack Developer',
+      github: 'https://github.com/MouhamedOUMAR'
   },
   {
       id: 4,
       name: ' Management Network',
       description: "• Built lab simulations using Cisco Packet Tracer & GNS3 Completed CCNA course from iiinetworking Worked on network automation with Python",
       tools: ['Cisco packet tracer', 'GNS3', 'Python'],
-      role: 'Self Learning'
+      role: 'Self Learning',
+      github: 'https://github.com/MouhamedOUMAR'
+    
   }
 ];
 
