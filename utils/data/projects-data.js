@@ -5,15 +5,15 @@ export const projectsData = [
       description: "Me and my friend Abdellahi  built a Creation and updating of the LMD training framework database application. ",
       tools: ['Php', 'JavaScript', 'MySQL', 'Html', 'CSS'],
       role: 'Backend Developer',
-      github: 'https://github.com/MouhamedOUMAR'
+      github: 'https://github.com/MouhamedOUMAR/System-LMD'
   },
   {
       id: 2,
-      name: 'Spring boot ',
+      name: 'Spring boot Application ',
       description: 'Backend system for managing students. Features full CRUD operations and RESTful APIs using Spring Data JPA.',
       tools: ['Java', 'Spring boot', "MySQL",],
       role: 'Full Stack Developer',
-      github: 'https://github.com/MouhamedOUMAR'
+      github: 'https://github.com/MouhamedOUMAR/Student-Management-System'
   },
   {
       id: 3,
