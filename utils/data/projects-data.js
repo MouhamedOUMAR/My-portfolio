@@ -1,0 +1,33 @@
+export const projectsData = [
+  {
+      id: 1,
+      name: 'System LMD App',
+      description: "Me and my friend Abdellahi  built a Creation and updating of the LMD training framework database application. ",
+      tools: ['Php', 'JavaScript', 'MySQL', 'Html', 'CSS'],
+      role: 'Backend Developer',
+      github: 'https://github.com/MouhamedOUMAR'
+  },
+  {
+      id: 2,
+      name: 'Spring boot ',
+      description: 'Backend system for managing students. Features full CRUD operations and RESTful APIs using Spring Data JPA.',
+      tools: ['Java', 'Spring boot', "MySQL",],
+      role: 'Full Stack Developer'
+  },
+  {
+      id: 3,
+      name: ' Attendance System Bank ',
+      description: ' Collaborated with a team to develop a system Bank Attendance .',
+      tools: ['Java', 'Swing',"MySQL"],
+      role: 'Full Stack Developer'
+  },
+  {
+      id: 4,
+      name: ' Management Network',
+      description: "• Built lab simulations using Cisco Packet Tracer & GNS3 Completed CCNA course from iiinetworking Worked on network automation with Python",
+      tools: ['Cisco packet tracer', 'GNS3', 'Python'],
+      role: 'Self Learning'
+  }
+];
+
+
