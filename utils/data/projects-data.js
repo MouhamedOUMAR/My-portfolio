@@ -12,7 +12,7 @@ export const projectsData = [
       name: 'Spring boot Application ',
       description: 'Backend system for managing students. Features full CRUD operations and RESTful APIs using Spring Data JPA.',
       tools: ['Java', 'Spring boot', "MySQL",],
-      role: 'Full Stack Developer',
+      role: 'Backend Developer',
       github: 'https://github.com/MouhamedOUMAR/Student-Management-System'
   },
   {
@@ -20,8 +20,8 @@ export const projectsData = [
       name: ' Attendance System Bank ',
       description: ' Collaborated with a team to develop a system Bank Attendance .',
       tools: ['Java', 'Swing',"MySQL"],
-      role: 'Full Stack Developer',
-      github: 'https://github.com/MouhamedOUMAR/Student-Management-System'
+      role: 'Backend Developer',
+      github: 'https://github.com/MouhamedOUMAR/System-gestion-du-Bank'
   },
   {
       id: 4,
