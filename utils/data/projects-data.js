@@ -29,7 +29,7 @@ export const projectsData = [
       description: "• Built lab simulations using Cisco Packet Tracer & GNS3 Completed CCNA course from iiinetworking Worked on network automation with Python",
       tools: ['Cisco packet tracer', 'GNS3', 'Python'],
       role: 'Self Learning',
-      github: 'https://github.com/MouhamedOUMAR'
+      github: 'https://github.com/MouhamedOUMAR/Management-Networks'
     
   }
 ];
