@@ -7,7 +7,11 @@ import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
 
 function ContactForm() {
-  const [error, setError] = useState({ email: false, required: false });
+  const [error, setError] = useState({ 
+    email: false, 
+    name: false,
+    message: false 
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState({
     name: "",
@@ -16,23 +20,34 @@ function ContactForm() {
   });
   const [successMessage, setSuccessMessage] = useState("");
 
+  const validateName = (name) => {
+    return name.trim().length >= 2 && /^[a-zA-Z\s]*$/.test(name);
+  };
+
+  const validateMessage = (message) => {
+    return message.trim().length >= 10;
+  };
+
   const checkRequired = () => {
-    if (userInput.email && userInput.message && userInput.name) {
-      setError({ ...error, required: false });
-    }
+    const nameValid = validateName(userInput.name);
+    const messageValid = validateMessage(userInput.message);
+    const emailValid = isValidEmail(userInput.email);
+
+    setError({
+      name: !nameValid,
+      message: !messageValid,
+      email: !emailValid
+    });
+
+    return nameValid && messageValid && emailValid;
   };
 
   const handleSendMail = async (e) => {
     e.preventDefault();
 
-    if (!userInput.email || !userInput.message || !userInput.name) {
-      setError({ ...error, required: true });
+    if (!checkRequired()) {
       return;
-    } else if (error.email) {
-      return;
-    } else {
-      setError({ ...error, required: false });
-    };
+    }
 
     try {
       setIsLoading(true);
@@ -44,15 +59,20 @@ function ContactForm() {
       if (res.data && res.data.success) {
         toast.success(res.data.message || "Message sent successfully!");
         setSuccessMessage(res.data.message || "Your message sent successfully");
+        setUserInput({
+          name: "",
+          email: "",
+          message: "",
+        });
+        setError({
+          name: false,
+          email: false,
+          message: false
+        });
       } else {
         toast.error(res.data?.message || "Failed to send message.");
         setSuccessMessage("");
       }
-      setUserInput({
-        name: "",
-        email: "",
-        message: "",
-      });
     } catch (error) {
       const msg = error?.response?.data?.message || "Failed to send message.";
       toast.error(msg);
@@ -78,10 +98,15 @@ function ContactForm() {
               type="text"
               maxLength="100"
               required={true}
-              onChange={(e) => { setUserInput({ ...userInput, name: e.target.value }); setSuccessMessage(""); }}
+              onChange={(e) => { 
+                setUserInput({ ...userInput, name: e.target.value }); 
+                setSuccessMessage("");
+                setError({ ...error, name: !validateName(e.target.value) });
+              }}
               onBlur={checkRequired}
               value={userInput.name}
             />
+            {error.name && <p className="text-sm text-red-400">Name must be at least 2 characters and contain only letters and spaces!</p>}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -92,11 +117,12 @@ function ContactForm() {
               maxLength="100"
               required={true}
               value={userInput.email}
-              onChange={(e) => { setUserInput({ ...userInput, email: e.target.value }); setSuccessMessage(""); }}
-              onBlur={() => {
-                checkRequired();
-                setError({ ...error, email: !isValidEmail(userInput.email) });
+              onChange={(e) => { 
+                setUserInput({ ...userInput, email: e.target.value }); 
+                setSuccessMessage("");
+                setError({ ...error, email: !isValidEmail(e.target.value) });
               }}
+              onBlur={checkRequired}
             />
             {error.email && <p className="text-sm text-red-400">Please provide a valid email!</p>}
           </div>
@@ -108,16 +134,18 @@ function ContactForm() {
               maxLength="500"
               name="message"
               required={true}
-              onChange={(e) => { setUserInput({ ...userInput, message: e.target.value }); setSuccessMessage(""); }}
+              onChange={(e) => { 
+                setUserInput({ ...userInput, message: e.target.value }); 
+                setSuccessMessage("");
+                setError({ ...error, message: !validateMessage(e.target.value) });
+              }}
               onBlur={checkRequired}
               rows="4"
               value={userInput.message}
             />
+            {error.message && <p className="text-sm text-red-400">Message must be at least 10 characters long!</p>}
           </div>
           <div className="flex flex-col items-center gap-3">
-            {error.required && <p className="text-sm text-red-400">
-              All fiels are required!
-            </p>}
             <button
               className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
               role="button"
